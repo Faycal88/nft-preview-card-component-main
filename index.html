@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | NFT preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      :root {
+        --primarySoftBlue: hsl(215, 51%, 70%);
+        --primaryCyan: hsl(178, 100%, 50%);
+        --mainBG: hsl(217, 54%, 11%);
+        --cardBG: hsl(216, 50%, 16%);
+        --line: hsl(215, 32%, 27%);
+        --White: hsl(0, 0%, 100%);
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        background-color: var(--mainBG);
+        overflow: hidden;
+        font-family: "Outfit", sans-serif;
+      }
+      .title:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        width: 15em;
+        height: 27em;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: center;
+        padding: 1.2em;
+        border-radius: 10px;
+        background-color: var(--cardBG);
+      "
+      class="container"
+    >
+      <div style="display: block" class="picture">
+        <img
+          id="picture"
+          style="position: relative; width: 15em; cursor: pointer"
+          src="./images/image-equilibrium.jpg"
+          alt="preview"
+        />
+
+        <img
+          id="view"
+          style="
+            width: 2.5em;
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            display: none;
+          "
+          src="/images/icon-view.svg"
+          alt=""
+        />
+      </div>
+      <div class="info">
+        <h1 class="title" style="color: var(--White); font-size: medium">
+          Equilibrium #3429
+        </h1>
+        <p style="color: var(--primarySoftBlue); font-size: small">
+          Our Equilibrium collection promotes balance and calm.
+        </p>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8em;
+          "
+          class="more"
+        >
+          <div style="display: flex; align-items: center; gap: 0.8em">
+            <img src="./images/icon-ethereum.svg" alt="" />
+            <p style="color: var(--primaryCyan); font-size: small">0.041 ETH</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8em">
+            <img src="./images/icon-clock.svg" alt="" />
+            <p style="color: var(--primarySoftBlue); font-size: small">
+              3 days left
+            </p>
+          </div>
+        </div>
+        <div
+          style="
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: var(--line);
+          "
+          class="line"
+        ></div>
+        <div class="creator">
+          <div
+            style="
+              margin-top: 0.4em;
+              display: flex;
+              align-items: center;
+              gap: 1em;
+              font-size: small;
+            "
+          >
+            <img
+              style="border: 1px solid var(--White); border-radius: 50%"
+              width="25em"
+              src="./images/image-avatar.png"
+              alt=""
+            />
+            <p style="color: var(--primarySoftBlue); font-size: small">
+              Creation of
+            </p>
+            <span style="color: var(--White); font-size: small"
+              >Jules Wyvern</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--   Equilibrium #3429
+
+  
+
+  
+ 
+  
+    -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+  <script>
+    var image = document.getElementById("picture");
+    var view = document.getElementById("view");
+    var title = document.getElementById("title");
+    image.addEventListener("mouseover", (event) => {
+      view.style.display = "block";
+      image.style.filter = "blur(5px)";
+    });
+
+    view.addEventListener("mouseover", (event) => {
+      view.style.display = "block";
+    });
+    image.addEventListener("mouseout", (event) => {
+      view.style.display = "none";
+      image.style.filter = "blur(0px)";
+    });
+    title.addEventListener("mouseover", (event) => {
+      title.style.color = "var(--primaryCyan)";
+    });
+  </script>
+</html>
